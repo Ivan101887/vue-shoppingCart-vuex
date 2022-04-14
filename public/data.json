@@ -1,0 +1,50 @@
+[
+  {
+    "name": "MacBook Pro 16 灰",
+    "desc": "8核心第九代 i9 / 1TB / 2.4GHz",
+    "src": "https://b.ecimg.tw/items/DYAJBGA900AIFEX/000001_1588847796.jpg",
+    "price": 110900
+  },
+  {
+    "name": "Apple Watch S6",
+    "desc": "藍色鋁金屬錶殼海軍深藍色運動型錶帶",
+    "src": "https://b.ecimg.tw/items/DYAJCLA900AVOGK/000001_1600407932.jpg",
+    "price": 12900
+  },
+  {
+    "name": "Mac mini 3.6GHz",
+    "desc": "第八代 i3 / 8GB / 256GB",
+    "src": "https://b.ecimg.tw/items/DYAJER1900AP0HX/000001_1591153062.jpg",
+    "price": 23828
+  },
+  {
+    "name": "MacBook Air 13 金色",
+    "desc": "256GB / 雙核心第10代 i3 / 1.1GHz",
+    "src": "https://c.ecimg.tw/items/DYAJEX1900AOLWE/000001_1590548767.jpg",
+    "price": 29900
+  },
+  {
+    "name": "iMac 27 with Retina 5K display",
+    "desc": "8核心第10代 i7 / 8GB / 3.8GHz / 512GB",
+    "src": "https://d.ecimg.tw/items/DYAJBOA900ASVIA/000001_1599125040.jpg",
+    "price": 72900
+  },
+  {
+    "name": "▼限時降價優惠▼ APPLE TV 32G 4K",
+    "desc": "《★限時下殺》開始﹕現在開始結束﹕隨時結束",
+    "src": "https://e.ecimg.tw/items/DYAJCH19009IP4A/000001_1588907606.jpg",
+    "price": 5499
+  },
+  {
+    "name": "2020 Apple iPad Air 10.9吋 64G WiFi 銀色",
+    "desc": "10.9 吋 Liquid Retina 顯示器 64 位元 A14 仿生晶片",
+    "src": "https://b.ecimg.tw/items/DYAJIDA900AVJ1E/000001_1600678233.jpg",
+    "price": 18900
+  },
+  {
+    "name": "新款★限時優惠 AirPods Pro",
+    "desc": "《絕不退讓★現省$1900》開始：現在開始 結束：隨時結束",
+    "src": "https://f.ecimg.tw/items/DYAJCH1900B17QT/000001_1607392666.jpg",
+    "price": 6090
+  }
+]
