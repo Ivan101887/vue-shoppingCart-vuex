@@ -1,17 +1,70 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
+import VueAxios from "vue-axios";
 
 Vue.use(Vuex)
+Vue.use(VueAxios, axios)
+
 
 export default new Vuex.Store({
   state: {
+    allProduct: [],
+    shoppingList: [],
+    totalAmount: 0,
+    shouldShowModel: false,
   },
   getters: {
+    allProduct: state => state.allProduct,
+    shoppingList: state => state.shoppingList,
+    totalAmount: state => state.totalAmount,
+    shouldShowModel: state => state.shouldShowModel
   },
   mutations: {
+    set_allProduct(state, products) {
+      state.allProduct = products;
+    },
+    add_item(state, id) {
+      state.shoppingList.push(state.allProduct[id]);
+    },
+    remove_item(state, id) {
+      const target = state.allProduct[id];
+      const index = state.shoppingList.lastIndexOf(target);
+      state.shoppingList.splice(index, 1);
+    },
+    plus_totalAmount(state) {
+      state.totalAmount += 1;
+    },
+    minus_totalAmount(state) {
+      state.totalAmount -= 1;
+    },
+    show_model(state, str) {
+      state.shouldShowModel = str;
+    }
   },
   actions: {
+    async getData({ commit }) {
+      try {
+        const res = await axios.get("./data.json");
+        commit('set_allProduct', res.data)
+      } catch (e) {
+        console.log("資料連接錯誤:\n", e);
+      }
+    },
+    addItem(context, id) {
+      context.commit('add_item', id);
+    },
+    removeItem(context, id) {
+      context.commit('remove_item', id);
+    },
+    plusTotalAmount(context) {
+      context.commit('plus_totalAmount');
+    },
+    minusTotalAmount(context) {
+      context.commit('minus_totalAmount');
+    },
+    showModel(context,str) {
+      context.commit('show_model',str);
+    }
   },
-  modules: {
-  }
 })

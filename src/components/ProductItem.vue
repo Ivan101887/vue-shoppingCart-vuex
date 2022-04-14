@@ -14,7 +14,11 @@
 				class="productItem__img"
 			/>
 		</figure>
-		<ProductCounter v-on="$listeners" :parent-max="5" :parent-min="0" />
+		<ProductCounter
+			v-bind="$attrs"
+			:parent-max="5"
+			:parent-min="0"
+		/>
 	</li>
 </template>
 
@@ -23,7 +27,7 @@
 	export default {
 		components: { ProductCounter },
 		name: "product-item",
-		props: { parentData: Object },
+		props: { parentData: Object},
 	};
 </script>
 

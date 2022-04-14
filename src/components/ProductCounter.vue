@@ -5,7 +5,7 @@
 			type="button"
 			value="-"
 			:disabled="counterNum === parentMin"
-			@click="counterNum--"
+			@click="removeFromCart"
 		/>
 		<span class="productItem__counter">{{ counterNum }}</span>
 		<input
@@ -13,34 +13,39 @@
 			type="button"
 			value="+"
 			:disabled="counterNum === parentMax"
-			@click="counterNum++"
+			@click="addToList"
 		/>
 	</div>
 </template>
+
 <script>
 	export default {
 		name: "product-counter",
 		props: {
 			parentMax: Number,
 			parentMin: Number,
-		},
-		inject: ['addTotal'],
-		created(){
-			console.log()
+			parentId: Number,
 		},
 		data() {
 			return {
 				counterNum: 0,
-				addTotal: this.addTotal,
 			};
 		},
-		watch: {
-			counterNum(nval, oval) {
-				this.addTotal(nval - oval);
+		methods: {
+			addToList() {
+				this.counterNum++;
+				this.$store.dispatch("plusTotalAmount");
+				this.$store.dispatch("addItem", this.parentId);
+			},
+			removeFromCart() {
+				this.counterNum--;
+				this.$store.dispatch("minusTotalAmount");
+				this.$store.dispatch("removeItem", this.parentId);
 			},
 		},
 	};
 </script>
+
 <style lang="scss" scoped>
 	.productItem {
 		&__foot {
