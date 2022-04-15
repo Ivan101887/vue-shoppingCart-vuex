@@ -1,36 +1,38 @@
 <template>
 	<div class="cart">
 		<div class="cart__title">您的購物清單</div>
-		<table class="cart__table">
-			<thead class="cart__thead">
-				<tr class="cart__tr">
-					<th class="cart__th">品名</th>
-					<th class="cart__th">描述</th>
-					<th class="cart__th">價格</th>
-				</tr>
-			</thead>
-			<tbody class="cart__tbody">
-				<tr
-					:class="['cart__tr', { 'bg-cancel': index % 2 !== 0 }]"
-					v-for="(item, index) in shoppingList"
-					:key="index"
-				>
-					<td class="cart__td">{{ item.name }}</td>
-					<td class="cart__td">{{ item.desc }}</td>
-					<td class="cart__td text-ce td-sm">
-						${{ String(item.price).replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}
-					</td>
-				</tr>
-				<tr class="cart__tr total">
-					<td class="cart__td" colspan="2">合計</td>
-					<td class="cart__td text-ce td-sm">
-						${{
-							String(calcTotalPrice()).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-						}}
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="tblWrap">
+			<table class="cart__table">
+				<thead class="cart__thead">
+					<tr class="cart__tr">
+						<th class="cart__th">品名</th>
+						<th class="cart__th">描述</th>
+						<th class="cart__th">價格</th>
+					</tr>
+				</thead>
+				<tbody class="cart__tbody">
+					<tr
+						:class="['cart__tr', { 'bg-cancel': index % 2 !== 0 }]"
+						v-for="(item, index) in shoppingList"
+						:key="index"
+					>
+						<td class="cart__td">{{ item.name }}</td>
+						<td class="cart__td">{{ item.desc }}</td>
+						<td class="cart__td text-ce td-sm">
+							${{ String(item.price).replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}
+						</td>
+					</tr>
+					<tr class="cart__tr total">
+						<td class="cart__td" colspan="2">合計</td>
+						<td class="cart__td text-ce td-sm">
+							${{
+								String(calcTotalPrice()).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+							}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 		<input
 			type="button"
 			value="繼續購物去"
@@ -98,6 +100,7 @@
 		}
 		&__td {
 			text-align: left;
+			line-height: 1.5em;
 		}
 		&__td,
 		&__th {
@@ -125,6 +128,10 @@
 			}
 			padding: 10px 15px;
 		}
+	}
+	.tblWrap {
+		max-height: 400px;
+		overflow-y: auto;
 	}
 	.total {
 		background: {
