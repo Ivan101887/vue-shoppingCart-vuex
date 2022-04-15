@@ -42,13 +42,13 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		transition: opacity 0.3s ease-in;
+		transition: opacity 0.5s ease-in-out;
 		background-color: rgba(0, 0, 0, 0.527);
 	}
 	.modal-enter,
 	.modal-leave-active {
 		opacity: 0;
-		& {
+		& .cart{
 			transform: scale(1.1);
 		}
 	}
