@@ -10,7 +10,7 @@
 	import { mapGetters } from "vuex";
 	import ShoppingList from "./ShoppingList.vue";
 	export default {
-		name: "Model",
+		name: "Modal",
 		components: { ShoppingList },
 		computed: {
 			...mapGetters({

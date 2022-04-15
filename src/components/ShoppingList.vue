@@ -13,7 +13,7 @@
 				<tbody class="cart__tbody">
 					<tr
 						:class="['cart__tr', { 'bg-cancel': index % 2 !== 0 }]"
-						v-for="(item, index) in shoppingList"
+						v-for="(item, index) in cart"
 						:key="index"
 					>
 						<td class="cart__td">{{ item.name }}</td>
@@ -32,6 +32,8 @@
 					</tr>
 				</tbody>
 			</table>
+			{{cart}}
+			{{data}}
 		</div>
 		<input
 			type="button"
@@ -42,25 +44,28 @@
 	</div>
 </template>
 <script>
-	import { mapGetters } from "vuex";
 	export default {
 		name: "shopping-list",
-		computed: {
-			...mapGetters({
-				shoppingList: "shoppingList",
-			}),
-		},
+		inject: ["cart","data"],
 		methods: {
 			calcTotalPrice() {
 				let totalPrice = 0;
-				this.shoppingList.forEach((item) => {
+				this.cart.forEach((item) => {
 					totalPrice += item.price;
 				});
+				console.log(this.cart);
 				return totalPrice;
 			},
 			hideModal() {
 				document.querySelector("body").style.overflow = "auto";
 				this.$store.dispatch("toggleShowModal", false);
+			},
+			setCart() {
+				this.cart.map((cartItem) => {
+					return this.data.find((item) => {
+						return cartItem === item.name;
+					});
+				});
 			},
 		},
 	};

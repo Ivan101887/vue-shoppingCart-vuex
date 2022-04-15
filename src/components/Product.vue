@@ -1,34 +1,37 @@
 <template>
 	<main class="main">
 		<ul class="product container mx-auto">
-			<ProductItem
-				v-for="(item, id) in allProduct"
-				:key="item.name"
-				:parent-data="item"
-				:parent-id="id"
-			/>
+			<ProductItem v-for="item in data" :key="item.name" :parent-data="item" />
 			<ProductTotal />
 		</ul>
 	</main>
 </template>
 
 <script>
-	import { mapGetters } from "vuex";
 	import ProductItem from "./ProductItem.vue";
 	import ProductTotal from "./ProductTotal.vue";
 	export default {
 		name: "Product",
-		components: { ProductItem, ProductTotal },
 		data() {
 			return {
-				sum: 0,
+				data: [],
 			};
 		},
-		computed: {
-			...mapGetters(["allProduct", "shoppingList"]),
+		created() {
+			this.getData();
 		},
-		mounted() {
-			this.$store.dispatch("getData");
+		components: { ProductItem, ProductTotal },
+		methods: {
+			async getData() {
+				try {
+					const api = "./data.json";
+					const res = await this.$http(api);
+					this.data = res.data;
+					this.$emit('setData',this.data)
+				} catch (e) {
+					console.log("資料連接錯誤:\n", e);
+				}
+			},
 		},
 	};
 </script>

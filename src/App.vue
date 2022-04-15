@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<Modal @close="close" v-if="isShow" />
-		<Product />
+		<Product @setData="getDataFromChild" />
 	</div>
 </template>
 
@@ -16,9 +16,15 @@
 			Product,
 			Modal,
 		},
+		data() {
+			return {
+				data: [],
+			};
+		},
 		computed: {
 			...mapGetters({
 				isShow: "shouldShowModal",
+				shoppingList: "shoppingList",
 			}),
 		},
 		methods: {
@@ -26,6 +32,19 @@
 				document.querySelector("body").style.overflow = "";
 				this.$store.dispatch("toggleShowModal", false);
 			},
+			getDataFromChild(data) {
+				return data;
+			},
+			async sendData(){
+				this.data = await get;
+				return this.data
+			}
+		},
+		provide() {
+			return {
+				cart: this.shoppingList,
+				data: this.sendData
+			};
 		},
 	};
 </script>

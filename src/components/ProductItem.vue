@@ -15,9 +15,9 @@
 			/>
 		</figure>
 		<ProductCounter
-			v-bind="$attrs"
 			:parent-max="5"
 			:parent-min="0"
+			:parent-name="parentData.name"
 		/>
 	</li>
 </template>

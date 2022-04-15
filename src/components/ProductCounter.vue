@@ -24,7 +24,7 @@
 		props: {
 			parentMax: Number,
 			parentMin: Number,
-			parentId: Number,
+			parentName: String,
 		},
 		data() {
 			return {
@@ -34,13 +34,11 @@
 		methods: {
 			addToList() {
 				this.counterNum++;
-				this.$store.dispatch("plusTotalAmount");
-				this.$store.dispatch("addItem", this.parentId);
+				this.$store.dispatch("addItem", this.parentName);
 			},
 			removeFromCart() {
 				this.counterNum--;
-				this.$store.dispatch("minusTotalAmount");
-				this.$store.dispatch("removeItem", this.parentId);
+				this.$store.dispatch("removeItem", this.parentName);
 			},
 		},
 	};
