@@ -17,11 +17,12 @@
 	export default {
 		name: "product-total",
 		computed: {
-			...mapGetters({ total: "totalAmount", isShow: "shouldShowModel" }),
+			...mapGetters({ total: "totalAmount", isShow: "shouldShowModal" }),
 		},
 		methods: {
 			open() {
-				this.$store.dispatch("showModel", true);
+				document.querySelector("body").style.overflow = "hidden";
+				this.$store.dispatch("toggleShowModal", true);
 			},
 		},
 	};

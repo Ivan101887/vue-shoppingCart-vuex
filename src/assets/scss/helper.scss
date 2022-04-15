@@ -10,6 +10,17 @@
     };
   }
 }
+.text {
+  &-lf {
+    text-align: left;
+  }
+  &-rt {
+    text-align: right;
+  }
+  &-ce {
+    text-align: center;
+  }
+}
 
 
 

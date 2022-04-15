@@ -1,21 +1,32 @@
 <template>
 	<div id="app">
-		<Model />
+		<Modal @close="close" v-if="isShow" />
 		<Product />
 	</div>
 </template>
 
 <script>
-	import Model from "./components/Model.vue";
+	import { mapGetters } from "vuex";
+	import Modal from "./components/Modal.vue";
 	import Product from "./components/Product.vue";
 
 	export default {
 		name: "App",
 		components: {
 			Product,
-			Model,
+			Modal,
 		},
-		
+		computed: {
+			...mapGetters({
+				isShow: "shouldShowModal",
+			}),
+		},
+		methods: {
+			close() {
+				document.querySelector("body").style.overflow = "auto";
+				this.$store.dispatch("toggleShowModal", false);
+			},
+		},
 	};
 </script>
 

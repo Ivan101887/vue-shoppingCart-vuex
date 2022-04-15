@@ -12,13 +12,13 @@ export default new Vuex.Store({
     allProduct: [],
     shoppingList: [],
     totalAmount: 0,
-    shouldShowModel: false,
+    shouldShowModal: false,
   },
   getters: {
     allProduct: state => state.allProduct,
     shoppingList: state => state.shoppingList,
     totalAmount: state => state.totalAmount,
-    shouldShowModel: state => state.shouldShowModel
+    shouldShowModal: state => state.shouldShowModal
   },
   mutations: {
     set_allProduct(state, products) {
@@ -38,8 +38,8 @@ export default new Vuex.Store({
     minus_totalAmount(state) {
       state.totalAmount -= 1;
     },
-    show_model(state, str) {
-      state.shouldShowModel = str;
+    toggle_show_modal(state, str) {
+      state.shouldShowModal = str;
     }
   },
   actions: {
@@ -63,8 +63,8 @@ export default new Vuex.Store({
     minusTotalAmount(context) {
       context.commit('minus_totalAmount');
     },
-    showModel(context,str) {
-      context.commit('show_model',str);
+    toggleShowModal(context,str) {
+      context.commit('toggle_show_modal',str);
     }
   },
 })
