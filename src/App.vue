@@ -23,7 +23,7 @@
 		},
 		methods: {
 			close() {
-				document.querySelector("body").style.overflow = "auto";
+				document.querySelector("body").style.overflow = "";
 				this.$store.dispatch("toggleShowModal", false);
 			},
 		},

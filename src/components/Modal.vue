@@ -17,17 +17,12 @@
 				isShow: "shouldShowModal",
 			}),
 		},
-		watch: {
-			show() {
-				const body = document.querySelector("body");
-				this.isShow === true && body.style.overflow === "auto"
-					? window.addEventListener("keyup", this.onEscapeKeyUp)
-					: window.removeEventListener("keyup", this.onEscapeKeyUp);
-			},
+		created() {
+			window.addEventListener("keyup", this.onEscapeKeyUp);
 		},
 		methods: {
 			onEscapeKeyUp(e) {
-				if (e.which === 27) {
+				if (e.which === 27 && this.isShow === true) {
 					document.querySelector("body").style.overflow = "auto";
 					this.$store.dispatch("toggleShowModal", false);
 				}

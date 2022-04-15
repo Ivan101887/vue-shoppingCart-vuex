@@ -1,0 +1,23 @@
+[33mcommit 4864b4c13a1bd86f2b8d6c6575f4969e53fb0137[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Ivan yuan <Ivan_Yuan@cmoney.com.tw>
+Date:   Fri Apr 15 11:45:29 2022 +0800
+
+    完成shoppingList
+
+[33mcommit 431c1530ce65f9bc4794dd8a51e8cd6354a692f2[m
+Author: Ivan yuan <Ivan_Yuan@cmoney.com.tw>
+Date:   Thu Apr 14 19:10:05 2022 +0800
+
+    完成vuex
+
+[33mcommit dbb72548fb5432e39e8eb2cd2be7ca1a693e13c1[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Ivan yuan <Ivan_Yuan@cmoney.com.tw>
+Date:   Thu Apr 14 13:56:56 2022 +0800
+
+    環境建立&繼承元件結構
+
+[33mcommit b8f52b12482e5c4c750977c5245a066b0cd96262[m
+Author: Ivan yuan <Ivan_Yuan@cmoney.com.tw>
+Date:   Thu Apr 14 12:26:04 2022 +0800
+
+    init
