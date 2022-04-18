@@ -1,22 +1,25 @@
 <template>
 	<div id="app">
-		<Modal @close="close" v-if="isShow" :parent-data="data"/>
+		<Modal @close="close" v-if="isShow" :parent-data="data" />
 		<Product :parent-data="data" />
+		<Total />
 	</div>
 </template>
 
 <script>
 	import { mapGetters } from "vuex";
-	import Modal from "./components/Modal.vue";
-	import Product from "./components/Product.vue";
+	import Modal from "@/components/Modal";
+	import Product from "@/components/product/Product";
+	import Total from "@/components/Total";
+
 
 	export default {
 		name: "App",
 		components: {
 			Product,
 			Modal,
+			Total
 		},
-		
 		data() {
 			return {
 				data: [],
@@ -29,6 +32,11 @@
 		},
 		created() {
 			this.getData();
+		},
+		provide() {
+			return {
+				parentData: this.data,
+			};
 		},
 		methods: {
 			close() {

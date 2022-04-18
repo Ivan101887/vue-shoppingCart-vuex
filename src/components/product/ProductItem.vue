@@ -23,7 +23,7 @@
 </template>
 
 <script>
-	import ProductCounter from "./ProductCounter.vue";
+	import ProductCounter from "@/components/product/ProductCounter";
 	export default {
 		components: { ProductCounter },
 		name: "product-item",

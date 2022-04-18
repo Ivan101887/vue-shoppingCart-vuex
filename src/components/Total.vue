@@ -1,12 +1,12 @@
 <template>
 	<div class="total">
 		<p class="total__title">商品數量:</p>
-		<p class="total__num">{{ total }}</p>
+		<p class="total__num">{{ shoppingList.length }}</p>
 		<input
 			type="button"
 			class="total__btn blink"
 			value="購物清單"
-			v-if="total !== 0"
+			v-if="shoppingList.length !== 0"
 			@click="open"
 		/>
 	</div>
@@ -15,9 +15,9 @@
 <script>
 	import { mapGetters } from "vuex";
 	export default {
-		name: "product-total",
+		name: "total",
 		computed: {
-			...mapGetters({ total: "totalAmount", isShow: "shouldShowModal" }),
+			...mapGetters({ shoppingList: "shoppingList", isShow: "shouldShowModal" }),
 		},
 		methods: {
 			open() {

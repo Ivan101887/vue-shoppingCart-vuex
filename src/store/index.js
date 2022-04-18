@@ -11,8 +11,7 @@ export default new Vuex.Store({
   },
   getters: {
     shoppingList: state => state.shoppingList,
-    totalAmount: state => state.shoppingList.length,
-    shouldShowModal: state => state.shouldShowModal
+    shouldShowModal: state => state.shouldShowModal,
   },
   mutations: {
     ADD_ITEM(state, name) {

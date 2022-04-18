@@ -1,16 +1,17 @@
 <template>
 	<transition name="modal">
 		<div class="modal" v-if="isShow" @click.self="$emit('close')">
-			<ShoppingList v-bind="$attrs"/>
+			<ShoppingList v-bind="$attrs" />
 		</div>
 	</transition>
 </template>
 
 <script>
 	import { mapGetters } from "vuex";
-	import ShoppingList from "./ShoppingList.vue";
+	import ShoppingList from "@/components/ShoppingList.vue";
 	export default {
 		name: "Modal",
+		inheritAttrs: false,
 		components: { ShoppingList },
 		computed: {
 			...mapGetters({
@@ -48,7 +49,7 @@
 	.modal-enter,
 	.modal-leave-active {
 		opacity: 0;
-		& .cart{
+		& .cart {
 			transform: scale(1.1);
 		}
 	}

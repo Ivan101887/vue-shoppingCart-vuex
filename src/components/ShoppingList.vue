@@ -16,15 +16,15 @@
 						v-for="(item, index) in cart"
 						:key="index"
 					>
-						<td class="cart__td">{{ item.name }}</td>
-						<td class="cart__td">{{ item.desc }}</td>
-						<td class="cart__td text-ce td-sm">
+						<td class="cart__td text-lf">{{ item.name }}</td>
+						<td class="cart__td text-lf">{{ item.desc }}</td>
+						<td class="cart__td text-rt td-sm">
 							${{ String(item.price).replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}
 						</td>
 					</tr>
 					<tr class="cart__tr total">
-						<td class="cart__td" colspan="2">合計</td>
-						<td class="cart__td text-ce td-sm">
+						<td class="cart__td text-lf" colspan="2">合計</td>
+						<td class="cart__td text-rt td-sm">
 							${{
 								String(calcTotalPrice()).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 							}}
@@ -107,7 +107,7 @@
 			}
 		}
 		&__td {
-			text-align: left;
+			vertical-align: middle;
 			line-height: 1.5em;
 		}
 		&__td,

@@ -1,21 +1,23 @@
 <template>
 	<main class="main">
 		<ul class="product container mx-auto">
-			<ProductItem v-for="item in parentData" :key="item.name" :parent-data="item" />
-			<ProductTotal />
+			<ProductItem
+				v-for="item in parentData"
+				:key="item.name"
+				:parent-data="item"
+			/>
 		</ul>
 	</main>
 </template>
 
 <script>
-	import ProductItem from "./ProductItem.vue";
-	import ProductTotal from "./ProductTotal.vue";
+	import ProductItem from "@/components/product/ProductItem";
 	export default {
 		name: "Product",
 		props: {
 			parentData: Array,
 		},
-		components: { ProductItem, ProductTotal },
+		components: { ProductItem },
 	};
 </script>
 
