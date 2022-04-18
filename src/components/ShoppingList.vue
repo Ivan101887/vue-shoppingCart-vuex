@@ -32,8 +32,6 @@
 					</tr>
 				</tbody>
 			</table>
-			{{cart}}
-			{{data}}
 		</div>
 		<input
 			type="button"
@@ -44,28 +42,36 @@
 	</div>
 </template>
 <script>
+	import { mapGetters } from "vuex";
 	export default {
 		name: "shopping-list",
-		inject: ["cart","data"],
+		props: {
+			parentData: Array,
+		},
+		computed: {
+			...mapGetters({
+				shoppingList: "shoppingList",
+			}),
+			cart() {
+				return this.shoppingList.map((cartItem) => {
+					return this.parentData.find((item) => {
+						return item.name === cartItem;
+					});
+				});
+			},
+		},
+
 		methods: {
 			calcTotalPrice() {
 				let totalPrice = 0;
 				this.cart.forEach((item) => {
 					totalPrice += item.price;
 				});
-				console.log(this.cart);
 				return totalPrice;
 			},
 			hideModal() {
-				document.querySelector("body").style.overflow = "auto";
+				document.querySelector("body").style.overflow = "";
 				this.$store.dispatch("toggleShowModal", false);
-			},
-			setCart() {
-				this.cart.map((cartItem) => {
-					return this.data.find((item) => {
-						return cartItem === item.name;
-					});
-				});
 			},
 		},
 	};

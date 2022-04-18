@@ -1,7 +1,7 @@
 <template>
 	<transition name="modal">
 		<div class="modal" v-if="isShow" @click.self="$emit('close')">
-			<ShoppingList />
+			<ShoppingList v-bind="$attrs"/>
 		</div>
 	</transition>
 </template>

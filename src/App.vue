@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
-		<Modal @close="close" v-if="isShow" />
-		<Product @setData="getDataFromChild" />
+		<Modal @close="close" v-if="isShow" :parent-data="data"/>
+		<Product :parent-data="data" />
 	</div>
 </template>
 
@@ -16,6 +16,7 @@
 			Product,
 			Modal,
 		},
+		
 		data() {
 			return {
 				data: [],
@@ -24,27 +25,25 @@
 		computed: {
 			...mapGetters({
 				isShow: "shouldShowModal",
-				shoppingList: "shoppingList",
 			}),
+		},
+		created() {
+			this.getData();
 		},
 		methods: {
 			close() {
 				document.querySelector("body").style.overflow = "";
 				this.$store.dispatch("toggleShowModal", false);
 			},
-			getDataFromChild(data) {
-				return data;
+			async getData() {
+				try {
+					const api = "./data.json";
+					const res = await this.$http(api);
+					this.data = res.data;
+				} catch (e) {
+					console.log("資料連接錯誤:\n", e);
+				}
 			},
-			async sendData(){
-				this.data = await get;
-				return this.data
-			}
-		},
-		provide() {
-			return {
-				cart: this.shoppingList,
-				data: this.sendData
-			};
 		},
 	};
 </script>
