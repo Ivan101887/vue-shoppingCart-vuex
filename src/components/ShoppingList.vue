@@ -52,16 +52,12 @@
 			...mapGetters({
 				shoppingList: "shoppingList",
 			}),
-			
 			cart() {
-				return this.shoppingList.map((cartItem) => {
-					return this.parentData.find((item) => {
-						return item.name === cartItem;
-					});
-				});
+				return this.shoppingList.map((cartItem) =>
+					this.parentData.find((item) => item.name === cartItem)
+				);
 			},
 		},
-
 		methods: {
 			calcTotalPrice() {
 				let totalPrice = 0;
