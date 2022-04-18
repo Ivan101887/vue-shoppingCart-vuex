@@ -52,6 +52,7 @@
 			...mapGetters({
 				shoppingList: "shoppingList",
 			}),
+			
 			cart() {
 				return this.shoppingList.map((cartItem) => {
 					return this.parentData.find((item) => {
